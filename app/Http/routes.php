@@ -11,9 +11,10 @@
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
 });
+*/
 
 /*
 |--------------------------------------------------------------------------
@@ -27,5 +28,36 @@ Route::get('/', function () {
 */
 
 Route::group(['middleware' => ['web']], function () {
-    //
+
+	Route::get('/', 
+		[
+		'as'=>'home',
+		'uses'=>'FrontController@Home'
+		]);
+	Route::get('contacto',
+		[
+		'as'=>'contact',
+		'uses'=>'FrontController@contacto'
+		]);
+	Route::get('review',
+		[
+		'as'=>'review',
+		'uses'=>'FrontController@review'
+		]);
+	Route::get('404',
+		[
+		'as'=>'404',
+		'uses'=>'FrontController@notfound'
+		]);
+	Route::get('single',
+		[
+		'as'=>'single',
+		'uses'=>'FrontController@single'
+		]);
+	Route::get('videos',
+		[
+		'as'=>'videos',
+		'uses'=>'FrontController@videos'
+		]);
+
 });
